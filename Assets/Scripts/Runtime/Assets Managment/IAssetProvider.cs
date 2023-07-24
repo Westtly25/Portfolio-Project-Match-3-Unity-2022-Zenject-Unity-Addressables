@@ -1,11 +1,10 @@
-using System.Threading.Tasks;
-using CodeBase.Services;
 using UnityEngine;
+using System.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 
 namespace CodeBase.Infrastructure.AssetManagement
 {
-  public interface IAssetProvider:IService
+  public interface IAssetProvider
   {
     Task<GameObject> Instantiate(string path, Vector3 at);
     Task<GameObject> Instantiate(string path);
