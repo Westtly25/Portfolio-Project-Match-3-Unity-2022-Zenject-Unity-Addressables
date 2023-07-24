@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Runtime.Save_System
 {
-    [Serializable]
-    public class SaveData
-    {
-        
-    }
-
     public class SaveHandler
     {
         private const string FILE_PATH = "";
@@ -25,16 +14,16 @@ namespace Assets.Scripts.Runtime.Save_System
             fileHandler = new();
         }
 
-        public async void Save()
-        {
+        public async void Save() =>
             await fileHandler.WriteFileAsync(FILE_PATH, ConvertToString());
-        }
 
         public async void Load()
         {
             string data = await fileHandler.ReadFileAsync(FILE_PATH);
 
-            saveData = data != null ? ConvertFromJson(data) : NewSaveData();
+            saveData = data != null ? 
+                ConvertFromJson(data) :
+                NewSaveData();
         }
 
         private SaveData ConvertFromJson(string data) =>
