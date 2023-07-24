@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Assets.Scripts.Runtime.Data
 {
     [Serializable]
-    public class ScoreData
+    public sealed class ScoreData
     {
         [SerializeField, Min(0)]
         private int score;

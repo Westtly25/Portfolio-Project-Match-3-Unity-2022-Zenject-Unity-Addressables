@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Assets.Scripts.Runtime.Data
 {
     [Serializable]
-    public class TurnsData
+    public sealed class TurnsData
     {
         [SerializeField, Min(0)]
         private int turns;

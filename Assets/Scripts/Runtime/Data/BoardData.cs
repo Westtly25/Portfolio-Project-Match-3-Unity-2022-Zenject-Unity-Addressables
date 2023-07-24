@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [Serializable]
-public class BoardData
+public sealed class BoardData
 {
     [SerializeField, Range(4, 40)]
     private int width;
