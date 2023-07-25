@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Scripts.Runtime.Pause;
 
 namespace Assets.Code.Scripts.Runtime.State_Machine.StateMachine
 {
@@ -66,17 +67,13 @@ namespace Assets.Code.Scripts.Runtime.State_Machine.StateMachine
             anyTransitions.Add(new Transition(null, stateTo, condition));
         }
 
-        public void Run()
+        public virtual void Run()
         {
             if (TransitionsEnabled)
-            {
                 SetStateByTransitions();
-            }
 
             if (HasCurrentState)
-            {
                 CurrentState.OnRun();
-            }
         }
 
         public void SetStateByTransitions()

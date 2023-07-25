@@ -4,6 +4,7 @@ using Assets.Scripts.Runtime.Save_System;
 using Assets.Scripts.Runtime.Audio_System;
 using CodeBase.Infrastructure.AssetManagement;
 using System.IO;
+using Assets.Scripts.Runtime.Input_System;
 
 namespace Assets.Scripts.Runtime.Installers
 {
@@ -37,6 +38,11 @@ namespace Assets.Scripts.Runtime.Installers
                      .NonLazy();
 
             Container.BindInterfacesAndSelfTo<FileHandler>()
+                     .FromNew()
+                     .AsSingle()
+                     .NonLazy();
+
+            Container.BindInterfacesAndSelfTo<InputService>()
                      .FromNew()
                      .AsSingle()
                      .NonLazy();
