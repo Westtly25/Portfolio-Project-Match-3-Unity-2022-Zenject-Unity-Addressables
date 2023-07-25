@@ -3,18 +3,17 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using Unity.VisualScripting;
 
 namespace CodeBase.Infrastructure.AssetManagement
 {
-    public class AssetProvider : IAssetProvider
+    public class AssetProvider : IAssetProvider, IInitializable
     {
         private readonly Dictionary<string, AsyncOperationHandle> _completedCashe = new Dictionary<string, AsyncOperationHandle>();
         private readonly Dictionary<string, List<AsyncOperationHandle>> _handles = new Dictionary<string, List<AsyncOperationHandle>>();
 
-        public void Initialize()
-        {
+        public void Initialize() =>
             Addressables.InitializeAsync();
-        }
 
         public async Task<T> Load<T>(AssetReference assetReference) where T : class
         {
@@ -30,8 +29,6 @@ namespace CodeBase.Infrastructure.AssetManagement
         {
             if (_completedCashe.TryGetValue(address, out AsyncOperationHandle completedHandle))
                 return completedHandle.Result as T;
-
-            AsyncOperationHandle<T> handle = Addressables.LoadAssetAsync<T>(address);
 
             return await RunWithCacheOnComplete(
               Addressables.LoadAssetAsync<T>(address),

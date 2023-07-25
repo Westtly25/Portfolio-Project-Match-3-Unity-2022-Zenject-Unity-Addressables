@@ -2,11 +2,11 @@
 
 namespace Assets.Scripts.Runtime.Save_System
 {
-    public class SaveHandler
+    public class SaveHandler : ISaveHandler
     {
         private const string FILE_PATH = "";
         private readonly FileHandler fileHandler;
-        
+
         private SaveData saveData;
 
         public SaveHandler()
@@ -21,7 +21,7 @@ namespace Assets.Scripts.Runtime.Save_System
         {
             string data = await fileHandler.ReadFileAsync(FILE_PATH);
 
-            saveData = data != null ? 
+            saveData = data != null ?
                 ConvertFromJson(data) :
                 NewSaveData();
         }
