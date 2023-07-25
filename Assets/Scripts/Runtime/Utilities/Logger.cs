@@ -17,7 +17,7 @@ namespace Assets.Scripts.Runtime.Utilities
             path = Application.persistentDataPath + FILE;
         }
 
-        public async void Log(string msg) =>
+        public async void LogAsync(string msg) =>
             await handler.WriteFileAsync(path, msg);
     }
 }

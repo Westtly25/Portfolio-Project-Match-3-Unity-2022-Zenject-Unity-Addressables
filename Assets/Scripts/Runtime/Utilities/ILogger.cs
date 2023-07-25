@@ -2,6 +2,6 @@
 {
     public interface ILogger
     {
-        void Log(string msg);
+        void LogAsync(string msg);
     }
 }
