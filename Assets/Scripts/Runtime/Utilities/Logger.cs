@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Zenject;
+using UnityEngine;
 using Assets.Scripts.Runtime.Save_System;
 
 namespace Assets.Scripts.Runtime.Utilities
@@ -8,16 +9,18 @@ namespace Assets.Scripts.Runtime.Utilities
         private const string FILE = "log.txt";
         private readonly string path;
 
-        private FileHandler handler = new FileHandler();
+        [Header("Injected Data")]
+        private readonly FileHandler fileHandler;
 
-        public Logger()
+        [Inject]
+        public Logger(FileHandler fileHandler)
         {
-            handler = new();
-
             path = Application.persistentDataPath + FILE;
+
+            this.fileHandler = fileHandler;
         }
 
         public async void LogAsync(string msg) =>
-            await handler.WriteFileAsync(path, msg);
+            await fileHandler.WriteFileAsync(path, msg);
     }
 }

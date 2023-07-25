@@ -9,7 +9,7 @@ namespace Assets.Scripts.Runtime
         [SerializeField, Range(0, int.MaxValue)]
         private int id;
         [SerializeField, Range(0, 100)]
-        private int requiredTurns;
+        private int maxTurns;
 
         [SerializeField, Range(4, 20)]
         private int width;

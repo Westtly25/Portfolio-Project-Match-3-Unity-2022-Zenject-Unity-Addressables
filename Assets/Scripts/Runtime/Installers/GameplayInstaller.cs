@@ -1,6 +1,7 @@
 ﻿using Zenject;
-using Assets.Code.Scripts.Runtime.State_Machine.StateMachine;
 using Assets.Scripts.Runtime.Data;
+using Assets.Code.Scripts.Runtime.State_Machine.StateMachine;
+using Assets.Scripts.Runtime.State_Machine.Board_State_Machine;
 
 namespace Assets.Scripts.Runtime.Installers
 {
@@ -8,7 +9,7 @@ namespace Assets.Scripts.Runtime.Installers
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<StateMachine>()
+            Container.BindInterfacesAndSelfTo<BoardStateMachine>()
                      .FromNew()
                      .AsSingle()
                      .NonLazy();

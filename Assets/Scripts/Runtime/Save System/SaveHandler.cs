@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace Assets.Scripts.Runtime.Save_System
 {
@@ -9,8 +10,9 @@ namespace Assets.Scripts.Runtime.Save_System
 
         private SaveData saveData;
 
-        public SaveHandler() =>
-            fileHandler = new();
+        [Inject]
+        public SaveHandler(FileHandler fileHandler) =>
+            this.fileHandler = fileHandler;
 
         public async void Save() =>
             await fileHandler.WriteFileAsync(FILE_PATH, ConvertToString());

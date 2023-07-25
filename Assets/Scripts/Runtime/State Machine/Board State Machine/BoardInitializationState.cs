@@ -7,11 +7,13 @@ namespace Assets.Scripts.Runtime.State_Machine.Board_State_Machine
     {
         private readonly PlayerTurns turns;
         private readonly PlayerScore score;
+        private readonly LevelConfig level;
 
-        public BoardInitializationState(PlayerTurns playerTurns, PlayerScore playerScore)
+        public BoardInitializationState(PlayerTurns playerTurns, PlayerScore playerScore, LevelConfig level)
         {
             this.turns = playerTurns;
             this.score = playerScore;
+            this.level = level;
         }
     }
 }

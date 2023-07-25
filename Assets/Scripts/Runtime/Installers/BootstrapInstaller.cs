@@ -3,6 +3,7 @@ using Assets.Scripts.Runtime.Utilities;
 using Assets.Scripts.Runtime.Save_System;
 using Assets.Scripts.Runtime.Audio_System;
 using CodeBase.Infrastructure.AssetManagement;
+using System.IO;
 
 namespace Assets.Scripts.Runtime.Installers
 {
@@ -30,6 +31,15 @@ namespace Assets.Scripts.Runtime.Installers
                      .AsSingle()
                      .NonLazy();
 
+            Container.BindInterfacesAndSelfTo<Logger>()
+                     .FromNew()
+                     .AsSingle()
+                     .NonLazy();
+
+            Container.BindInterfacesAndSelfTo<FileHandler>()
+                     .FromNew()
+                     .AsSingle()
+                     .NonLazy();
         }
     }
 }
