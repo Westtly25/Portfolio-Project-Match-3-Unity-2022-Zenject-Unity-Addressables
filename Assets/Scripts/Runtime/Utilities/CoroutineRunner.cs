@@ -5,11 +5,8 @@ namespace Assets.Scripts.Runtime.Utilities
 {
     public class CoroutineRunner : MonoBehaviour, ICoroutineRunner
     {
-        public new Coroutine StartCoroutine(IEnumerator coroutine)
-        {
-            Coroutine toRun = base.StartCoroutine(coroutine);
-            return toRun;
-        }
+        public new Coroutine StartCoroutine(IEnumerator coroutine) =>
+             base.StartCoroutine(coroutine);
 
         public new void StopCoroutine(IEnumerator coroutine)
         {

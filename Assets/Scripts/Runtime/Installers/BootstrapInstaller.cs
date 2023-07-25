@@ -1,4 +1,5 @@
 ﻿using Zenject;
+using Assets.Scripts.Runtime.Utilities;
 using Assets.Scripts.Runtime.Save_System;
 using Assets.Scripts.Runtime.Audio_System;
 using CodeBase.Infrastructure.AssetManagement;
@@ -23,6 +24,12 @@ namespace Assets.Scripts.Runtime.Installers
                      .FromNew()
                      .AsSingle()
                      .NonLazy();
+
+            Container.BindInterfacesAndSelfTo<CoroutineRunner>()
+                     .FromNew()
+                     .AsSingle()
+                     .NonLazy();
+
         }
     }
 }
