@@ -9,10 +9,18 @@ namespace Assets.Scripts.Runtime.Data
         [SerializeField, Min(0)]
         private int turns;
 
-        public int Turns
+        public int Turns => turns;
+
+        public void Increase(int value)
         {
-            get => turns;
-            private set => turns = value;
+            if (value > 0)
+                turns += value;
+        }
+
+        public void Decrease(int value)
+        {
+            if (value < 0)
+                turns -= value;
         }
     }
 }

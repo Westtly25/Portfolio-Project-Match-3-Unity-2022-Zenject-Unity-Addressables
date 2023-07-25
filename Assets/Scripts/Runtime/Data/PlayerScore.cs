@@ -7,12 +7,14 @@ namespace Assets.Scripts.Runtime.Data
     public sealed class PlayerScore
     {
         [SerializeField, Min(0)]
-        private int score;
+        private int score = 0;
 
-        public int Score
+        public int Score => score;
+
+        public void Increase(int value)
         {
-            get => score;
-            private set => score = value;
+            if (value > 0)
+                score += value;
         }
     }
 }
