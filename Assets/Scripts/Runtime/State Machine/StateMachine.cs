@@ -17,6 +17,10 @@ namespace Assets.Code.Scripts.Runtime.State_Machine.StateMachine
 
         private bool isStatesAdded;
 
+        public StateMachine()
+        {
+        }
+
         public StateMachine(params State[] states)
         {
             AddStates(states);

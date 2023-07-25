@@ -4,15 +4,15 @@ using UnityEngine;
 namespace Assets.Scripts.Runtime.Data
 {
     [Serializable]
-    public sealed class TurnsData
+    public sealed class PlayerScore
     {
         [SerializeField, Min(0)]
-        private int turns;
+        private int score;
 
-        public int Turns
+        public int Score
         {
-            get => turns;
-            private set => turns = value;
+            get => score;
+            private set => score = value;
         }
     }
 }
