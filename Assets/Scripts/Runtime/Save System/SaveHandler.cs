@@ -9,10 +9,8 @@ namespace Assets.Scripts.Runtime.Save_System
 
         private SaveData saveData;
 
-        public SaveHandler()
-        {
+        public SaveHandler() =>
             fileHandler = new();
-        }
 
         public async void Save() =>
             await fileHandler.WriteFileAsync(FILE_PATH, ConvertToString());

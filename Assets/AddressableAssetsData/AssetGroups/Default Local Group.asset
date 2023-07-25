@@ -18,7 +18,12 @@ MonoBehaviour:
   m_GUID: c12c3571b4fb34b4b8ca5a21dd8b6068
   m_SerializeEntries:
   - m_GUID: 281de4025c4fb694c85d80f4a451776f
-    m_Address: Assets/Scriptable objects/Levels Configs Container.asset
+    m_Address: Levels Configs Container
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f3ede58d80e3b64a9ec41ac70444f7e
+    m_Address: MainAudioMixer
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
