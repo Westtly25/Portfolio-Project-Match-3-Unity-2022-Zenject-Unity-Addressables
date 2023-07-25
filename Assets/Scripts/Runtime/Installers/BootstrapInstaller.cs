@@ -1,5 +1,6 @@
 ﻿using Zenject;
 using Assets.Scripts.Runtime.Save_System;
+using Assets.Scripts.Runtime.Audio_System;
 using CodeBase.Infrastructure.AssetManagement;
 
 namespace Assets.Scripts.Runtime.Installers
@@ -9,6 +10,11 @@ namespace Assets.Scripts.Runtime.Installers
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<AssetProvider>()
+                     .FromNew()
+                     .AsSingle()
+                     .NonLazy();
+
+            Container.BindInterfacesAndSelfTo<AudioService>()
                      .FromNew()
                      .AsSingle()
                      .NonLazy();

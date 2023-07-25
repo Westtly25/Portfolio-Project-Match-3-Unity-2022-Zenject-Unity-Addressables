@@ -5,5 +5,6 @@
         Main_Theme_Music,
         UI_Button_Click_Sound,
         UI_Slider_Move_Sound,
+        UI_Togle_Click_Sound,
     }
 }
