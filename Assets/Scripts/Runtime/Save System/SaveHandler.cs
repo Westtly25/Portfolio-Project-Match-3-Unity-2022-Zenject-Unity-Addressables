@@ -7,8 +7,11 @@ namespace Assets.Scripts.Runtime.Save_System
     {
         private const string FILE_PATH = "";
         private readonly FileHandler fileHandler;
+        private bool isLoaded = false;
 
         private SaveData saveData;
+
+        public bool IsLoaded => isLoaded;
 
         [Inject]
         public SaveHandler(FileHandler fileHandler) =>
@@ -19,11 +22,15 @@ namespace Assets.Scripts.Runtime.Save_System
 
         public async void Load()
         {
+            isLoaded = false;
+
             string data = await fileHandler.ReadFileAsync(FILE_PATH);
 
             saveData = data != null ?
                 ConvertFromJson(data) :
                 NewSaveData();
+
+            isLoaded = true;
         }
 
         private SaveData ConvertFromJson(string data) =>

@@ -5,10 +5,10 @@ public class AppLoadState : State
 {
     private readonly SaveHandler saveHandler;
 
-    public AppLoadState(SaveHandler saveHandler)
-    {
+    public bool IsComplete => saveHandler.IsLoaded;
+
+    public AppLoadState(SaveHandler saveHandler) =>
         this.saveHandler = saveHandler;
-    }
 
     public override void OnEnter()
     {

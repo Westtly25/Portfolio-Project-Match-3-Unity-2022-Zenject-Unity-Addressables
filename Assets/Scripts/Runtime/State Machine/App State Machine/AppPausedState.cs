@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Assets.Scripts.Runtime.Pause;
+using Assets.Code.Scripts.Runtime.State_Machine.StateMachine;
 
-public class AppPausedState : MonoBehaviour
+public class AppPausedState : State
 {
-    // Start is called before the first frame update
-    void Start()
+    private readonly PauseHandler pauseHandler;
+
+    public AppPausedState(PauseHandler pauseHandler)
     {
-        
+        this.pauseHandler = pauseHandler;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnEnter()
     {
-        
+        base.OnEnter();
+
+        pauseHandler.SetPaused(true);
+    }
+
+    public override void OnExit()
+    {
+        base.OnExit();
+
+        pauseHandler.SetPaused(false);
     }
 }

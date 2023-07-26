@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Assets.Code.Scripts.Runtime.State_Machine.StateMachine;
 
-public class AppQuiteState : MonoBehaviour
+public class AppQuiteState : State
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnEnter()
     {
-        
-    }
+        base.OnEnter();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Application.Quit();
     }
 }
