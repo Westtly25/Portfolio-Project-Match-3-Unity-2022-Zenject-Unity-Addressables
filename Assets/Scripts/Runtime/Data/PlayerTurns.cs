@@ -11,6 +11,9 @@ namespace Assets.Scripts.Runtime.Data
 
         public int Turns => turns;
 
+        public void Initialize(int amount) =>
+            turns = amount;
+
         public void Increase(int value)
         {
             if (value > 0)

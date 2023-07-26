@@ -15,5 +15,10 @@ namespace Assets.Scripts.Runtime
         private int width;
         [SerializeField, Range(4, 20)]
         private int height;
+
+        public int Id => id;
+        public int MaxTurns => maxTurns;
+        public int Width => width;
+        public int Height => height;
     }
 }
