@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Assets.Scripts.Runtime.Save_System
 {
-    public class SaveHandler : ISaveHandler
+    public class SaveLoadHandler : ISaveLoadHandler
     {
         private const string FILE_PATH = "";
         private readonly FileHandler fileHandler;
@@ -14,13 +14,13 @@ namespace Assets.Scripts.Runtime.Save_System
         public bool IsLoaded => isLoaded;
 
         [Inject]
-        public SaveHandler(FileHandler fileHandler) =>
+        public SaveLoadHandler(FileHandler fileHandler) =>
             this.fileHandler = fileHandler;
 
-        public async void Save() =>
+        public async void SaveAsync() =>
             await fileHandler.WriteFileAsync(FILE_PATH, ConvertToString());
 
-        public async void Load()
+        public async void LoadAsync()
         {
             isLoaded = false;
 

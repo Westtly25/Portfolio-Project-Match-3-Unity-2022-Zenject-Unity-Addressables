@@ -4,10 +4,11 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Assets.Scripts.Runtime.Utilities;
+using Cysharp.Threading.Tasks;
 
 namespace Assets.Scripts.Runtime.Save_System
 {
-    public class FileHandler
+    public class FileHandler : IFileHandler
     {
         private readonly Logger logger;
 
@@ -17,7 +18,7 @@ namespace Assets.Scripts.Runtime.Save_System
             this.logger = logger;
         }
 
-        public async Task<string> ReadFileAsync(string filePath)
+        public async UniTask<string> ReadFileAsync(string filePath)
         {
             try
             {
@@ -59,7 +60,7 @@ namespace Assets.Scripts.Runtime.Save_System
             }
         }
 
-        public async Task WriteFileAsync(string filePath, string text)
+        public async UniTask WriteFileAsync(string filePath, string text)
         {
             try
             {

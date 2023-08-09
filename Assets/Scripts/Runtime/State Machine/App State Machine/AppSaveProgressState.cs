@@ -4,15 +4,15 @@ using Assets.Code.Scripts.Runtime.State_Machine.StateMachine;
 
 public class AppSaveProgressState : State
 {
-    private readonly SaveHandler saveHandler;
+    private readonly SaveLoadHandler saveHandler;
 
-    public AppSaveProgressState(SaveHandler saveHandler) =>
+    public AppSaveProgressState(SaveLoadHandler saveHandler) =>
         this.saveHandler = saveHandler;
 
     public override void OnEnter()
     {
         base.OnEnter();
 
-        saveHandler.Save();
+        saveHandler.SaveAsync();
     }
 }

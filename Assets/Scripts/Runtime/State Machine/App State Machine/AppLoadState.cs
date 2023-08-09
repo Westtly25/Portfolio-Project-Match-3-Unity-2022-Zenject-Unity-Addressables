@@ -3,17 +3,17 @@ using Assets.Code.Scripts.Runtime.State_Machine.StateMachine;
 
 public class AppLoadState : State
 {
-    private readonly SaveHandler saveHandler;
+    private readonly SaveLoadHandler saveHandler;
 
     public bool IsComplete => saveHandler.IsLoaded;
 
-    public AppLoadState(SaveHandler saveHandler) =>
+    public AppLoadState(SaveLoadHandler saveHandler) =>
         this.saveHandler = saveHandler;
 
     public override void OnEnter()
     {
         base.OnEnter();
 
-        saveHandler.Load();
+        saveHandler.LoadAsync();
     }
 }
