@@ -5,10 +5,8 @@ public class AppPausedState : State
 {
     private readonly PauseHandler pauseHandler;
 
-    public AppPausedState(PauseHandler pauseHandler)
-    {
+    public AppPausedState(PauseHandler pauseHandler) =>
         this.pauseHandler = pauseHandler;
-    }
 
     public override void OnEnter()
     {
